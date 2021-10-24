@@ -1,4 +1,3 @@
-import { Component } from "react";
 import { connect } from "react-redux";
 import {
   HeaderWrapper,
@@ -12,54 +11,46 @@ import {
 } from "./style";
 import { CSSTransition } from "react-transition-group";
 
-class Header extends Component {
-  render() {
-    return (
-      <div>
-        <HeaderWrapper>
-          <Logo />
-          <Nav>
-            <NavItem className="left active">Main</NavItem>
-            <NavItem className="left">DownLoad App</NavItem>
-            <NavItem className="right">Login</NavItem>
-            <NavItem className="right">
-              <span className="material-icons">text_fields</span>
-            </NavItem>
-            <SearchWrapper>
-              <CSSTransition
-                timeout={200}
-                in={this.props.focused}
-                classNames="slide"
-              >
-                <NavSearch
-                  className={this.props.focused ? "focused" : ""}
-                  onFocus={() => this.props.handleInputFocus()}
-                  onBlur={() => this.props.handleInputBlur()}
-                ></NavSearch>
-              </CSSTransition>
-              <span
-                className={
-                  this.props.focused
-                    ? "focused material-icons"
-                    : "material-icons"
-                }
-              >
-                search
-              </span>
-            </SearchWrapper>
-            <Addition>
-              <Button className="text">
-                <span className="material-icons">edit</span>
-                Text
-              </Button>
-              <Button className="reg">Regiter</Button>
-            </Addition>
-          </Nav>
-        </HeaderWrapper>
-      </div>
-    );
-  }
-}
+const Header = (props) => {
+  return (
+    <div>
+      <HeaderWrapper>
+        <Logo />
+        <Nav>
+          <NavItem className="left active">Main</NavItem>
+          <NavItem className="left">DownLoad App</NavItem>
+          <NavItem className="right">Login</NavItem>
+          <NavItem className="right">
+            <span className="material-icons">text_fields</span>
+          </NavItem>
+          <SearchWrapper>
+            <CSSTransition timeout={200} in={props.focused} classNames="slide">
+              <NavSearch
+                className={props.focused ? "focused" : ""}
+                onFocus={() => props.handleInputFocus()}
+                onBlur={() => props.handleInputBlur()}
+              ></NavSearch>
+            </CSSTransition>
+            <span
+              className={
+                props.focused ? "focused material-icons" : "material-icons"
+              }
+            >
+              search
+            </span>
+          </SearchWrapper>
+          <Addition>
+            <Button className="text">
+              <span className="material-icons">edit</span>
+              Text
+            </Button>
+            <Button className="reg">Regiter</Button>
+          </Addition>
+        </Nav>
+      </HeaderWrapper>
+    </div>
+  );
+};
 
 const mapStateToProps = (state) => {
   return {
