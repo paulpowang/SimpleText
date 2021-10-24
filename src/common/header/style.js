@@ -44,6 +44,22 @@ export const NavItem = styled.div`
   &.active {
     color: orange;
   }
+  .material-icons {
+    padding-top: 15px;
+  }
+`;
+export const SearchWrapper = styled.div`
+  float: left;
+  position: relative;
+  .material-icons {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    width: 30px;
+    line-height: 30px;
+    border-radius: 15px;
+    text-align: center;
+  }
 `;
 
 export const NavSearch = styled.input.attrs({
@@ -86,5 +102,9 @@ export const Button = styled.div`
   &.text {
     color: #fff;
     background: #ec6149;
+    .material-icons {
+      font-size: 14px;
+      margin-right: 10px;
+    }
   }
 `;

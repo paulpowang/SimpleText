@@ -7,6 +7,7 @@ import {
   NavSearch,
   Addition,
   Button,
+  SearchWrapper,
 } from "./style";
 
 class Header extends Component {
@@ -19,10 +20,18 @@ class Header extends Component {
             <NavItem className="left active">Main</NavItem>
             <NavItem className="left">DownLoad App</NavItem>
             <NavItem className="right">Login</NavItem>
-            <NavItem className="right">Aa</NavItem>
-            <NavSearch></NavSearch>
+            <NavItem className="right">
+              <span className="material-icons">text_fields</span>
+            </NavItem>
+            <SearchWrapper>
+              <NavSearch></NavSearch>
+              <span className="material-icons">search</span>
+            </SearchWrapper>
             <Addition>
-              <Button className="text">Text</Button>
+              <Button className="text">
+                <span className="material-icons">edit</span>
+                Text
+              </Button>
               <Button className="reg">Regiter</Button>
             </Addition>
           </Nav>
