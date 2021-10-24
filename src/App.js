@@ -1,5 +1,11 @@
+import Header from "./common/header";
+
 function App() {
-  return <div className="App">Hello word</div>;
+  return (
+    <div className="App">
+      <Header />
+    </div>
+  );
 }
 
 export default App;
