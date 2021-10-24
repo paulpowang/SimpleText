@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { connect } from "react-redux";
 import {
   HeaderWrapper,
   Logo,
@@ -12,24 +13,6 @@ import {
 import { CSSTransition } from "react-transition-group";
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      focused: false,
-    };
-  }
-
-  handleInputFocus() {
-    this.setState({
-      focused: true,
-    });
-  }
-  handleInputBlur() {
-    this.setState({
-      focused: false,
-    });
-  }
-
   render() {
     return (
       <div>
@@ -45,18 +28,18 @@ class Header extends Component {
             <SearchWrapper>
               <CSSTransition
                 timeout={200}
-                in={this.state.focused}
+                in={this.props.focused}
                 classNames="slide"
               >
                 <NavSearch
-                  className={this.state.focused ? "focused" : ""}
-                  onFocus={() => this.handleInputFocus()}
-                  onBlur={() => this.handleInputBlur()}
+                  className={this.props.focused ? "focused" : ""}
+                  onFocus={() => this.props.handleInputFocus()}
+                  onBlur={() => this.props.handleInputBlur()}
                 ></NavSearch>
               </CSSTransition>
               <span
                 className={
-                  this.state.focused
+                  this.props.focused
                     ? "focused material-icons"
                     : "material-icons"
                 }
@@ -78,4 +61,27 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    focused: state.focused,
+  };
+};
+
+const mapDispathToProps = (dispatch) => {
+  return {
+    handleInputFocus() {
+      const action = {
+        type: "search_focus",
+      };
+      dispatch(action);
+    },
+    handleInputBlur() {
+      const action = {
+        type: "search_blur",
+      };
+      dispatch(action);
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispathToProps)(Header);
