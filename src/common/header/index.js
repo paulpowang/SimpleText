@@ -1,5 +1,13 @@
 import { Component } from "react";
-import { HeaderWrapper, Logo, Nav, NavItem } from "./style";
+import {
+  HeaderWrapper,
+  Logo,
+  Nav,
+  NavItem,
+  NavSearch,
+  Addition,
+  Button,
+} from "./style";
 
 class Header extends Component {
   render() {
@@ -12,6 +20,11 @@ class Header extends Component {
             <NavItem className="left">DownLoad App</NavItem>
             <NavItem className="right">Login</NavItem>
             <NavItem className="right">Aa</NavItem>
+            <NavSearch></NavSearch>
+            <Addition>
+              <Button className="text">Text</Button>
+              <Button className="reg">Regiter</Button>
+            </Addition>
           </Nav>
         </HeaderWrapper>
       </div>
