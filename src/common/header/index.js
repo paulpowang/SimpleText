@@ -8,6 +8,11 @@ import {
   Addition,
   Button,
   SearchWrapper,
+  SearchInfo,
+  SearchInfoTitle,
+  SearchInfoSwitch,
+  SearchInfoItem,
+  SearchInfoList,
 } from "./style";
 import { CSSTransition } from "react-transition-group";
 import * as actionCreators from "./store/actionCreators";
@@ -39,6 +44,24 @@ const Header = (props) => {
             >
               search
             </span>
+            {props.focused ? (
+              <SearchInfo>
+                <SearchInfoTitle>
+                  Recommand Search
+                  <SearchInfoSwitch>Switch</SearchInfoSwitch>
+                </SearchInfoTitle>
+                <SearchInfoList>
+                  <SearchInfoItem>Test</SearchInfoItem>
+                  <SearchInfoItem>Test</SearchInfoItem>
+                  <SearchInfoItem>Test</SearchInfoItem>
+                  <SearchInfoItem>Test</SearchInfoItem>
+                  <SearchInfoItem>Test</SearchInfoItem>
+                  <SearchInfoItem>Test</SearchInfoItem>
+                  <SearchInfoItem>Test</SearchInfoItem>
+                  <SearchInfoItem>Test</SearchInfoItem>
+                </SearchInfoList>
+              </SearchInfo>
+            ) : null}
           </SearchWrapper>
           <Addition>
             <Button className="text">
